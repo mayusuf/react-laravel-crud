@@ -1,5 +1,10 @@
 <?php
 
+/*
+ ORM for movie table.
+ Insert, update, delete and get of movies
+*/
+
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;

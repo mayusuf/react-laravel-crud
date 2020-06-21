@@ -14,10 +14,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::middleware('auth:api')->get('/user', function (Request $request) {
-//     return $request->user();
-// });
-
+/*
+ REST API routes
+*/
+ 
 Route::get('movies', 'ApiController@getMovies');
 Route::get('movies/{id}', 'ApiController@getMovie');
 Route::post('movies', 'ApiController@createMovie');

@@ -1,5 +1,7 @@
 <?php
-
+/*
+ Business logic applies in this controller regarding movie
+*/
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
@@ -13,6 +15,8 @@ use DB;
 
 class ApiController extends Controller
 {
+    // Retive all movies. Apply GET method
+    // return : status code
     public function getMovies() {
 
         $allmovies['movies'] = DB::table('movies')
@@ -21,9 +25,12 @@ class ApiController extends Controller
     	return response($allmovies, 200);
     }
 
+    // Insert movie information by applying POST method
+    // $request : Data about movie which are given into form 
+    // return : response status code 201 along with message
     public function createMovie(Request $request) {
 
-      // logic to create a student record goes here
+      
 
     	request()->validate([
 	        'title' => 'required',
@@ -54,9 +61,12 @@ class ApiController extends Controller
 	  
     }
 
-    public function getMovie($id) {
-      // logic to get a student record goes here
+    // Retive a single movie information conjunction with category by applying GET method
+    // $id : numeric 
+    // return movie information along with response status code
 
+    public function getMovie($id) {
+      
     	$singleMovie['movie'] = DB::table('movies')
         ->join('categories','movies.cat_id','=','categories.cat_id')
         ->where('movies.id',"=",$id)
@@ -65,8 +75,14 @@ class ApiController extends Controller
     	return response($singleMovie, 200);
     }
 
+    
+    // Update movie information  by applying PUT method
+    // $request : Data about movie which are given into edit form 
+    // $id : numeric 
+    // return response status code along with message
+
     public function updateMovie(Request $request,$id) {
-      // logic to update a student record goes here
+      
 
     	request()->validate([
 	        'title' => 'required',
@@ -119,6 +135,10 @@ class ApiController extends Controller
 
 	    ], 201);	
     }
+
+    // Delete movie information  by applying DELETE method
+    // $id : numeric 
+    // return response status code along with message
 
     public function deleteMovie($id) {
       	

@@ -1,5 +1,9 @@
 <?php
 
+/*
+ Business logic applies in this controller regarding category
+*/
+
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
