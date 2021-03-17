@@ -25,3 +25,4 @@ Route::put('movies/{id}', 'ApiController@updateMovie');
 Route::delete('movies/{id}','ApiController@deleteMovie');
 
 Route::get('categories', 'ApiCategory@getCategories');
+Route::post('categories', 'ApiCategory@createCategory');

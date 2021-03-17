@@ -29,7 +29,6 @@ class ApiController extends Controller
     // $request : Data about movie which are given into form 
     // return : response status code 201 along with message
     public function createMovie(Request $request) {
-
       
 
     	request()->validate([
